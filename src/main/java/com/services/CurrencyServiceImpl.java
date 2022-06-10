@@ -42,7 +42,7 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     private boolean compareCurrentAndYesterdayRates(Double currentRate, Double yesterdayRate) {
-        if (currentRate > yesterdayRate)
+        if (currentRate < yesterdayRate)
             return true;
         else return false;
     }
