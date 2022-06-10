@@ -21,6 +21,6 @@ public class GiphyServiceImpl implements GiphyService {
     @Override
     public Gif getGif(String tag) {
         GiphyDto dto = giphyClient.getGif(config.getApiKeyId(), tag, config.getRating());
-        return dto.getGifData();
+        return dto.getData();
     }
 }

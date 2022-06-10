@@ -5,10 +5,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class OpenExchangeConfig {
-    @Value("$api.openexchange.id")
+    @Value("${api.openexchange.id}")
     private String apiKeyId;
 
-    @Value("$api.openexchange.url")
+    @Value("${api.openexchange.url}")
     private String url;
 
     public String getApiKeyId() {

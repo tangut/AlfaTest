@@ -5,13 +5,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class GiphyConfig {
-    @Value("$api.giphy.id")
+    @Value("${api.giphy.id}")
     private String apiKeyId;
 
-    @Value("$api.giphy.id")
+    @Value("${api.giphy.url}")
     private String url;
 
-    @Value("$api.giphy.rating")
+    @Value("${api.giphy.rating}")
     private String rating;
 
     public String getApiKeyId() {

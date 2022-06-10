@@ -6,7 +6,6 @@ public class Gif {
     private String type;
     private String rating;
     private String url;
-    private byte[] images;
 
     public String getId() {
         return id;
@@ -46,13 +45,5 @@ public class Gif {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public byte[] getImages() {
-        return images;
-    }
-
-    public void setImages(byte[] images) {
-        this.images = images;
     }
 }

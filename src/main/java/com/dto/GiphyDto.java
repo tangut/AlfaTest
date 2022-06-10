@@ -3,13 +3,13 @@ package com.dto;
 import com.model.Gif;
 
 public class GiphyDto {
-    private Gif gifData;
+    private Gif data;
 
-    public Gif getGifData() {
-        return gifData;
+    public Gif getData() {
+        return data;
     }
 
-    public void setGifData(Gif gifData) {
-        this.gifData = gifData;
+    public void setData(Gif data) {
+        this.data = data;
     }
 }

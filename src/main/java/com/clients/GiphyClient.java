@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "giphy-client", url = "${api.giphy.url}")
 @Component
 public interface GiphyClient {
-    @GetMapping(value = "/random")
+    @GetMapping()
     GiphyDto getGif(@RequestParam("api_key") String id,
                     @RequestParam("tag") String tag,
                     @RequestParam("rating") String rating);
