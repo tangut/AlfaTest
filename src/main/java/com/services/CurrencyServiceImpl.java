@@ -3,6 +3,7 @@ package com.services;
 import com.clients.CurrencyClient;
 import com.configs.OpenExchangeConfig;
 import com.dto.CurrencyDto;
+import com.model.Gif;
 import com.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,9 @@ import org.springframework.stereotype.Service;
 public class CurrencyServiceImpl implements CurrencyService {
     @Autowired
     private OpenExchangeConfig config;
+
+    @Autowired
+    private GiphyService giphyService;
 
     private final CurrencyClient currencyClient;
 
@@ -41,5 +45,16 @@ public class CurrencyServiceImpl implements CurrencyService {
         if (currentRate > yesterdayRate)
             return true;
         else return false;
+    }
+
+    @Override
+    public String checkRatesAndGetGiphyLink(String code) {
+        Double currentRate = getCurrentCurrencyRate(code);
+        Double yesterdayRate = getYesterdayCurrencyRate(code);
+        Gif gif;
+        if (compareCurrentAndYesterdayRates(currentRate, yesterdayRate))
+            gif = giphyService.getGif("rich");
+        else gif = giphyService.getGif("broke");
+        return gif.getUrl();
     }
 }
