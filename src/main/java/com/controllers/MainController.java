@@ -1,6 +1,8 @@
 package com.controllers;
 
+import com.model.Gif;
 import com.services.CurrencyService;
+import com.services.GiphyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -19,12 +21,18 @@ public class MainController {
     @Autowired
     private CurrencyService currencyService;
 
-    @Value("${api.currency.code}")
-    private String code;
+    @Autowired
+    private GiphyService giphyService;
 
     @GetMapping
     public ResponseEntity showGif() throws URISyntaxException {
-        URI uri = new URI(currencyService.checkRatesAndGetGiphyLink(code));
+        Double currentRate = currencyService.getCurrentCurrencyRate();
+        Double yesterdayRate = currencyService.getYesterdayCurrencyRate();
+        Gif gif;
+        if (currentRate < yesterdayRate)
+            gif =  giphyService.getGif("rich");
+        else gif = giphyService.getGif("broke");
+        URI uri = new URI(gif.getUrl());
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(uri);
         return new ResponseEntity(headers, HttpStatus.SEE_OTHER);

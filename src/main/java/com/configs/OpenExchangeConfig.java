@@ -11,6 +11,9 @@ public class OpenExchangeConfig {
     @Value("${api.openexchange.url}")
     private String url;
 
+    @Value("${api.currency.code}")
+    private String code;
+
     public String getApiKeyId() {
         return apiKeyId;
     }
@@ -25,5 +28,13 @@ public class OpenExchangeConfig {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }
