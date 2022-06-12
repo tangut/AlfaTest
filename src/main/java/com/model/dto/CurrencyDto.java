@@ -1,4 +1,4 @@
-package com.dto;
+package com.model.dto;
 
 import java.util.Map;
 

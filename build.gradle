@@ -12,6 +12,7 @@ ext {
     springVersion = "2.6.7"
     feignVersion = "3.1.2"
     junitVersion = "5.8.2"
+    mockitoVersion = "1.10.19"
 }
 
 configurations {
@@ -31,6 +32,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-validation:$springVersion"
     implementation "org.springframework.cloud:spring-cloud-starter-openfeign:$feignVersion"
     testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testImplementation "org.mockito:mockito-all:$mockitoVersion"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 

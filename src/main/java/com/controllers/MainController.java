@@ -3,8 +3,8 @@ package com.controllers;
 import com.model.Gif;
 import com.services.CurrencyService;
 import com.services.GiphyService;
+import com.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +27,7 @@ public class MainController {
     @GetMapping
     public ResponseEntity showGif() throws URISyntaxException {
         Double currentRate = currencyService.getCurrentCurrencyRate();
-        Double yesterdayRate = currencyService.getYesterdayCurrencyRate();
+        Double yesterdayRate = currencyService.getHistoricalCurrencyRate(DateUtils.getYesterdayDateString());
         Gif gif;
         if (currentRate < yesterdayRate)
             gif =  giphyService.getGif("rich");

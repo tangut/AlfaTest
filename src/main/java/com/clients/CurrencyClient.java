@@ -1,6 +1,6 @@
 package com.clients;
 
-import com.dto.CurrencyDto;
+import com.model.dto.CurrencyDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;

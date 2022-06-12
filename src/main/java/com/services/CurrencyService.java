@@ -3,5 +3,5 @@ package com.services;
 public interface CurrencyService {
     Double getCurrentCurrencyRate();
 
-    Double getYesterdayCurrencyRate();
+    Double getHistoricalCurrencyRate(String date);
 }
