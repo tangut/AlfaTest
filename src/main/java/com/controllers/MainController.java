@@ -15,16 +15,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+/**
+ * Главный контроллер, отвечающий за эндпоинт, возвращающий гифку в зависимости от курса валют.
+ */
 @Controller
 @RequestMapping(value = "api/main")
-public class MainController {
+public class MainController { // не лучшее название, однако для задания нужен лишь один эндпоинт
     @Autowired
     private CurrencyService currencyService;
 
     @Autowired
     private GiphyService giphyService;
 
-    @GetMapping
+    /**
+     * Эндпоинт, перенаправляющий пользователя на гифку, в зависимости от повышения/понижения курса заданной валюты к USD.
+     */
+    @GetMapping // Т.к в задании чётко не сказано, в каком виде нужно вернуть гифку, а фронт не требуется, эндпоинт просто перенаправляет пользователя на гифку по её ссылке.
     public ResponseEntity showGif() throws URISyntaxException {
         Double currentRate = currencyService.getCurrentCurrencyRate();
         Double yesterdayRate = currencyService.getHistoricalCurrencyRate(DateUtils.getYesterdayDateString());
