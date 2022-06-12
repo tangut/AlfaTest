@@ -16,7 +16,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 @Controller
-@RequestMapping(value = "/main")
+@RequestMapping(value = "api/main")
 public class MainController {
     @Autowired
     private CurrencyService currencyService;
