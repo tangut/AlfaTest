@@ -1,16 +1,16 @@
-ЗАДАНИЕ
+**ЗАДАНИЕ**
 
 Создать сервис, который обращается к сервису курсов валют, и отображает gif:
 если курс по отношению к USD за сегодня стал выше вчерашнего, то отдаем рандомную отсюда https://giphy.com/search/rich
 если ниже - отсюда https://giphy.com/search/broke
 
-Ссылки
+**ССЫЛКИ**
 
 REST API курсов валют - https://docs.openexchangerates.org/
 
 REST API гифок - https://developers.giphy.com/docs/api#quick-start-guide
 
-Must Have
+**MUST HAVE**
 
 Сервис на Spring Boot 2 + Java / Kotlin
 
@@ -26,6 +26,6 @@ Must Have
 
 Результатом выполнения должен быть репо на GitHub с инструкцией по запуску
 
-Nice to Have
+**NICE TO HAVE**
 
 Сборка и запуск Docker контейнера с этим сервисом
